@@ -5,7 +5,8 @@ root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 cd -- "$root"
 python3 scripts/check-public.py
 test -z "$(git status --porcelain)" || { echo 'Commit reviewed changes before publishing.' >&2; exit 1; }
-gh api user --jq .login | python3 -c 'import sys; assert sys.stdin.read().strip() == "LushShepherd", "Unexpected GitHub account"'
+github_login="$(gh api user --jq .login)"
+test "$github_login" = 'LushShepherd' || { echo 'Unexpected GitHub account; expected LushShepherd.' >&2; exit 1; }
 if git remote get-url origin >/dev/null 2>&1; then
   test "$(git remote get-url origin)" = 'https://github.com/LushShepherd/xiaomi14-build.git'
   test "$(gh repo view LushShepherd/xiaomi14-build --json visibility --jq .visibility)" = 'PUBLIC'
