@@ -1,0 +1,37 @@
+[
+  {
+    "id": "china-os2",
+    "filename": "houji-ota_full-OS2.0.200.13.VNCCNXM-user-15.0-020d8aabc8.zip",
+    "version": "OS2.0.200.13.VNCCNXM",
+    "url": "https://bn.d.miui.com/OS2.0.200.13.VNCCNXM/houji-ota_full-OS2.0.200.13.VNCCNXM-user-15.0-020d8aabc8.zip",
+    "sha256": "ff7414fc1707849bc2683e9b4e9f1f7b6fa59dea9941a1a7469bb03cdc03bdef",
+    "bytes": 6391676699,
+    "required": true
+  },
+  {
+    "id": "global-os3",
+    "filename": "houji_global-ota_full-OS3.0.301.0.WNCMIXM-user-16.0-905b3920ab.zip",
+    "version": "OS3.0.301.0.WNCMIXM",
+    "url": "https://bn.d.miui.com/OS3.0.301.0.WNCMIXM/houji_global-ota_full-OS3.0.301.0.WNCMIXM-user-16.0-905b3920ab.zip",
+    "sha256": "685509f27b364b562ad3527868f6d0b667f85f4509f67be1f88464d671e434f1",
+    "bytes": 6540835361,
+    "required": true
+  },
+  {
+    "id": "china-os3-kernel",
+    "filename": "houji-ota_full-OS3.0.0.2.WNCCNXM-user-16.0-b1130b651c.zip",
+    "version": "OS3.0.0.2.WNCCNXM",
+    "url": "https://bn.d.miui.com/OS3.0.0.2.WNCCNXM/houji-ota_full-OS3.0.0.2.WNCCNXM-user-16.0-b1130b651c.zip",
+    "sha256": "28581c2f5c80cd2aa4bf5d87cf63df24ed41706eecc372d6acfa1efd8c5cba2c",
+    "bytes": 6394645099,
+    "required": false
+  },
+  {
+    "id": "rust-lfs-fixture",
+    "filename": "android_bp-test_db.tar.xz",
+    "url": "https://media.githubusercontent.com/media/tardyp/rs-bp/785b68e892a8e113e8b8e8c64105e05798d4b990/src/test_db.tar.xz",
+    "sha256": "faa09385f32d8b3e4518c14384b52ef94f6430da5a838307a2e0af2940b89608",
+    "bytes": 1803816,
+    "required": true
+  }
+]

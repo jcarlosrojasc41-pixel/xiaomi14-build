@@ -1,0 +1,37 @@
+[
+  {
+    "project_path": "device/xiaomi/houji",
+    "file": "patches/houji-pixelos-product.patch",
+    "sha256": "86a773b562d3de32836aef1a8b9d9a1c5f13644d12bb02beb7041e5fbea4bb78"
+  },
+  {
+    "project_path": "device/xiaomi/houji",
+    "file": "patches/houji-cn-esim-omission.patch",
+    "sha256": "38b4ed49bf34d67de1846f1f1fec031ce9b7b7acf7a5fbfe3a1ac900066dbf86"
+  },
+  {
+    "project_path": "device/xiaomi/sm8650-common",
+    "file": "patches/sm8650-common-cn-esim-omission.patch",
+    "sha256": "a486d8914849540e2c66921ef8a9b0e46018ec2b110f09450b214c306acb5feb"
+  },
+  {
+    "project_path": "device/xiaomi/sm8650-common",
+    "file": "patches/sm8650-common-extraction-fixup-paths.patch",
+    "sha256": "ac14a98ad1c9b9911bee37586b3a5929c0a241c7ca640374df9f5d82e9defbc8"
+  },
+  {
+    "project_path": "vendor/custom",
+    "file": "patches/vendor-custom-reproducible-date.patch",
+    "sha256": "21675b8c995b5cf78f76772d1f3626c4de9943b6f10855165ccb152b54d11172"
+  },
+  {
+    "project_path": "vendor/lineage",
+    "file": "patches/vendor-lineage-reproducible-date.patch",
+    "sha256": "87126a1f3b303e7f97639800bcb816b92138a7e8903624fc58636ca5df5f50b7"
+  },
+  {
+    "project_path": "build/make",
+    "file": "patches/build-make-ramdisk-property-reader.patch",
+    "sha256": "fa975826f9f0e6eb346825715ae827b968b1e0f917d6a0dba3030a41a11161b2"
+  }
+]

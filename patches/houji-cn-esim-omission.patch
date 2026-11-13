@@ -1,0 +1,51 @@
+diff --git a/device.mk b/device.mk
+index 9e610ec..bc1991d 100644
+--- a/device.mk
++++ b/device.mk
+@@ -11,20 +11,12 @@ $(call inherit-product, device/xiaomi/sm8650-common/common.mk)
+ # Get non-open-source specific aspects
+ $(call inherit-product, vendor/xiaomi/houji/houji-vendor.mk)
+ 
+-# Euicc
+-PRODUCT_COPY_FILES += \
+-    $(LOCAL_PATH)/configs/permissions/privapp-permissions-euiccgoogle.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-euiccgoogle.xml
+-
+-PRODUCT_PACKAGES += \
+-    XiaomiEuicc \
+-    XiaomiEsimSwitcher
++# This build targets the China variant (23127PN0CC) only. Omit the optional
++# eSIM integration that upstream init.houji.rc already masks for ro.boot.hwc=CN.
++# Its Google APK has no verified source matching the upstream extraction pin.
+ 
+ PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+ 
+-# init
+-PRODUCT_COPY_FILES += \
+-    $(LOCAL_PATH)/init/init.houji.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.houji.rc \
+-
+ # Soong namespaces
+ PRODUCT_SOONG_NAMESPACES += \
+     $(LOCAL_PATH)
+@@ -32,6 +24,5 @@ PRODUCT_SOONG_NAMESPACES += \
+ # Overlays
+ PRODUCT_PACKAGES += \
+     FrameworksResHouji \
+-    HoujiEuiccOverlay \
+     SettingsOverlayHouji \
+-    SystemUIResHouji
+\ No newline at end of file
++    SystemUIResHouji
+diff --git a/proprietary-files.txt b/proprietary-files.txt
+index 2db6957..7dc9fda 100644
+--- a/proprietary-files.txt
++++ b/proprietary-files.txt
+@@ -1449,9 +1449,6 @@ odm/etc/disp0/mdss_dsi_n3_42_0d_0a_dsc_cmd/miLutInfo.txt
+ odm/etc/display/qdcm_calib_data_xiaomi_n3_42_0d_0a_cmd_mode_dsc_dsi_panel.json
+ odm/etc/mdss_dsi_n3_42_0d_0a_dsc_cmd_mi.xml
+ 
+-# Euicc - from shiba-user-15-BP1A.250405.005.B1-13151136-release-keys
+-product/priv-app/EuiccGoogle/EuiccGoogle.apk|c792c42ba4cd171752d7ce5516a56ecb9858dc69
+-
+ # Fingerprint
+ odm/lib64/hw/fingerprint.goodix_fod.so:odm/lib64/hw/fingerprint.goodix_fod.default.so;FIX_SONAME
+ odm/lib64/libgf_hal.so

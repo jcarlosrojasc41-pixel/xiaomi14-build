@@ -1,0 +1,77 @@
+[
+  {
+    "project": "external/rust/android-crates-io",
+    "revision": "1f5e95cd6e996995023c9c0f7df0f15a8a43269e",
+    "files": [
+      {
+        "path": "crates/android_bp/src/test_db.tar.xz",
+        "sha256": "faa09385f32d8b3e4518c14384b52ef94f6430da5a838307a2e0af2940b89608",
+        "size": 1803816,
+        "pointer_blob_oid": "6cd15751549f23c20f7c6be31be3cf00a4d9aafe",
+        "oid_matched": true
+      }
+    ]
+  },
+  {
+    "project": "vendor/pixel/gms",
+    "revision": "7feb3322ac4a0849f32d8b95e565e73cf6774a20",
+    "files": [
+      {
+        "path": "common/proprietary/product/app/Maps/Maps.apk",
+        "sha256": "8bf6d8ae6ffccc84307abdb817e233c33d6e21017407f203d2e555abc7c66480",
+        "size": 115274683,
+        "pointer_blob_oid": "61979f14007e37f3c3d0242f58fe7e8d3f1f7373",
+        "oid_matched": true
+      },
+      {
+        "path": "common/proprietary/product/app/Photos/Photos.apk",
+        "sha256": "f7f43821f029d70d4f342b8dbeabe2cde5f6eec5736501d5e430f0438e42f898",
+        "size": 188444434,
+        "pointer_blob_oid": "287946ac1c7c7a4119e10d14cfdb449f48db2282",
+        "oid_matched": true
+      },
+      {
+        "path": "common/proprietary/product/app/PrebuiltGmail/PrebuiltGmail.apk",
+        "sha256": "120016c278b652eb61bc0497d696a67cdebbcf62f20f31465b80fdfea2657c24",
+        "size": 183523351,
+        "pointer_blob_oid": "46b6eaa68af8ca99b0ff7eab5e28e45794029abd",
+        "oid_matched": true
+      },
+      {
+        "path": "common/proprietary/product/app/WebViewGoogle/WebViewGoogle.apk.gz",
+        "sha256": "e62a5ef2794821f8df573063af872fbb6ef0dbb3a632e11a61ce494df8fbe867",
+        "size": 110818582,
+        "pointer_blob_oid": "4273e8c83ae6008753937bc7118e4e690e9717b4",
+        "oid_matched": true
+      },
+      {
+        "path": "common/proprietary/product/priv-app/DevicePersonalizationAiAiPrebuiltPixel2025/DevicePersonalizationAiAiPrebuiltPixel2025.apk",
+        "sha256": "e3cc000b32784ffc3ae5d106a3783c42799374a20f565869b6f11fbd6be4747b",
+        "size": 119865572,
+        "pointer_blob_oid": "bf471c2e5b088d9f42ed60925fbead9dce56517d",
+        "oid_matched": true
+      },
+      {
+        "path": "common/proprietary/product/priv-app/PrebuiltBugle/PrebuiltBugle.apk",
+        "sha256": "6675730cd59aba1c60e3b624ccda011e7b144207c507af2e58706234dff17a16",
+        "size": 168052254,
+        "pointer_blob_oid": "7594792e651c05cc6a3cf09958fd32a6c3096e12",
+        "oid_matched": true
+      },
+      {
+        "path": "common/proprietary/product/priv-app/Velvet/Velvet.apk",
+        "sha256": "de5e6faf7c3650cbd933368280f38a57a40fa3589eded0d28dc84c21deafb7d7",
+        "size": 366478094,
+        "pointer_blob_oid": "58927ce9461dd5a6a15689f768cde4aa0cbb1e9c",
+        "oid_matched": true
+      },
+      {
+        "path": "common/proprietary/system/apex/com.google.android.gmssystem.prodvic.apex",
+        "sha256": "3d259c8d56cd8608f3cfe0c367ad63d6a972f894909bf585aa45e12448b4d794",
+        "size": 146546688,
+        "pointer_blob_oid": "c26866506a3b5a81d5a3424e71762b349d623cf0",
+        "oid_matched": true
+      }
+    ]
+  }
+]

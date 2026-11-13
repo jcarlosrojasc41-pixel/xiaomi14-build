@@ -1,0 +1,124 @@
+diff --git a/tools/releasetools/common.py b/tools/releasetools/common.py
+index 0cf14b8..3b76e46 100644
+--- a/tools/releasetools/common.py
++++ b/tools/releasetools/common.py
+@@ -4169,6 +4169,89 @@ class DynamicPartitionsDifference(object):
+         append('move %s %s' % (p, u.tgt_group))
+ 
+ 
++def _ReadRamdiskBuildProp(ramdisk):
++  """Read only an allowlisted regular property file from a bounded newc archive.
++
++  No archive paths, links, ownership or device nodes are materialized. Validate
++  all records, including concatenated archives, before accepting a property.
++  Missing properties (including an empty boot ramdisk) return None; malformed
++  archives and ambiguous property entries fail instead of losing timestamps.
++  """
++  max_archive_size = 256 * 1024 * 1024
++  max_property_size = 1024 * 1024
++  allowed = {path.encode('utf-8') for path in RAMDISK_BUILD_PROP_REL_PATHS}
++  found = {}
++  with open(ramdisk, 'rb') as source:
++    archive_size = os.fstat(source.fileno()).st_size
++    if archive_size > max_archive_size:
++      raise ValueError('Ramdisk exceeds property-reader size limit')
++
++    def read_exact(size):
++      if size > archive_size - source.tell():
++        raise ValueError('Truncated newc ramdisk record')
++      data = source.read(size)
++      if len(data) != size:
++        raise ValueError('Truncated newc ramdisk record')
++      return data
++
++    def padding(size):
++      if any(read_exact((-size) % 4)):
++        raise ValueError('Nonzero newc ramdisk alignment padding')
++
++    archive_open = False
++    records = 0
++    while source.tell() < archive_size:
++      if not archive_open:
++        # newc archives may have zero padding between concatenated members.
++        position = source.tell()
++        block = source.read(min(4096, archive_size - position))
++        if not block:
++          raise ValueError('Truncated newc ramdisk padding')
++        zeros = len(block) - len(block.lstrip(b'\0'))
++        source.seek(position + zeros)
++        if zeros == len(block):
++          continue
++      header = read_exact(110)
++      if header[:6] != b'070701' or not re.fullmatch(b'[0-9a-fA-F]{104}', header[6:]):
++        raise ValueError('Invalid newc ramdisk header')
++      fields = [int(header[offset:offset + 8], 16) for offset in range(6, 110, 8)]
++      mode, links, size, name_size, checksum = (fields[i] for i in (1, 4, 6, 11, 12))
++      records += 1
++      if records > 65536 or not 1 <= name_size <= 4096 or checksum != 0:
++        raise ValueError('Invalid or excessive newc ramdisk record')
++      name = read_exact(name_size)
++      if not name.endswith(b'\0') or b'\0' in name[:-1]:
++        raise ValueError('Invalid newc ramdisk filename')
++      name = name[:-1]
++      padding(110 + name_size)
++      if name == b'TRAILER!!!':
++        if size != 0:
++          raise ValueError('Nonempty newc ramdisk trailer')
++        archive_open = False
++        continue
++      archive_open = True
++      while name.startswith(b'./'):
++        name = name[2:]
++      if name != b'.' and (not name or name.startswith(b'/') or
++                          any(part in (b'', b'.', b'..') for part in name.split(b'/'))):
++        raise ValueError('Unsafe newc ramdisk filename')
++      if size > archive_size - source.tell():
++        raise ValueError('Truncated newc ramdisk data')
++      if name in allowed:
++        if name in found or not stat.S_ISREG(mode) or links != 1 or size > max_property_size:
++          raise ValueError('Duplicate, nonregular or oversized ramdisk property')
++        found[name] = read_exact(size)
++      else:
++        source.seek(size, os.SEEK_CUR)
++      padding(size)
++    if archive_open or (archive_size and not records):
++      raise ValueError('Missing newc ramdisk trailer')
++  for path in RAMDISK_BUILD_PROP_REL_PATHS:
++    if path.encode('utf-8') in found:
++      return found[path.encode('utf-8')]
++  return None
++
++
+ def GetBootImageBuildProp(boot_img, ramdisk_format=RamdiskFormat.LZ4):
+   """
+   Get build.prop from ramdisk within the boot image
+@@ -4206,21 +4289,14 @@ def GetBootImageBuildProp(boot_img, ramdisk_format=RamdiskFormat.LZ4):
+       logger.error('Only support lz4, xz or gzip ramdisk format.')
+       return None
+ 
+-    abs_uncompressed_ramdisk = os.path.abspath(uncompressed_ramdisk)
+-    extracted_ramdisk = MakeTempDir('extracted_ramdisk')
+-    # Use "toybox cpio" instead of "cpio" because the latter invokes cpio from
+-    # the host environment.
+-    RunAndCheckOutput(['toybox', 'cpio', '-F', abs_uncompressed_ramdisk, '-i'],
+-                      cwd=extracted_ramdisk)
+-
+-    for search_path in RAMDISK_BUILD_PROP_REL_PATHS:
+-      prop_file = os.path.join(extracted_ramdisk, search_path)
+-      if os.path.isfile(prop_file):
+-        return prop_file
+-      logger.warning(
+-          'Unable to get boot image timestamp: no %s in ramdisk', search_path)
+-
+-    return None
++    data = _ReadRamdiskBuildProp(uncompressed_ramdisk)
++    if data is None:
++      logger.warning('Unable to get boot image timestamp: no property file in ramdisk')
++      return None
++    prop_file = MakeTempFile(prefix='boot_build_prop', suffix='.prop')
++    with open(prop_file, 'wb') as output:
++      output.write(data)
++    return prop_file
+ 
+   except ExternalError as e:
+     logger.warning('Unable to get boot image build props: %s', e)

@@ -1,0 +1,15 @@
+diff --git a/common.mk b/common.mk
+index 2cdd2a8..b8d1cac 100644
+--- a/common.mk
++++ b/common.mk
+@@ -360,9 +360,9 @@ PRODUCT_BOOT_JARS += \
+     telephony-ext \
+     xiaomi-telephony-stub
+ 
++# CN-only houji build: do not advertise the omitted optional eSIM integration.
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
+-    frameworks/native/data/etc/android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/android.hardware.telephony.euicc.xml \
+     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
+     frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
+     frameworks/native/data/etc/android.hardware.telephony.mbms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.mbms.xml \

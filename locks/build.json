@@ -1,0 +1,14 @@
+{
+  "target": "custom_houji-cp2a-userdebug",
+  "make_target": "pixelos",
+  "parallel_jobs": 12,
+  "environment": {
+    "BUILD_DATETIME": "1794280977",
+    "BUILD_NUMBER": "personal.8014d1536138",
+    "BUILD_USERNAME": "pixelos-builder",
+    "BUILD_HOSTNAME": "xiaomi14-build",
+    "CUSTOM_BUILD_DATE": "20261110-0322",
+    "LINEAGE_BUILD_DATE": "20261110"
+  },
+  "reproducibility_limit": "Pinned inputs and fixed build settings do not by themselves demonstrate bit-for-bit reproducibility; that requires comparing independent complete builds."
+}

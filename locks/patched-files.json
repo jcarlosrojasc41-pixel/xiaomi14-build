@@ -1,0 +1,164 @@
+{
+  "device/xiaomi/houji": {
+    "revision": "90f836ebc7b89a8dd22840b49db8c18cf7cabc2a",
+    "files": [
+      {
+        "path": "AndroidProducts.mk",
+        "base_blob": "bb802c1ab82732c704c57ebad98387bbd29cd653",
+        "expected_git_mode": "100644",
+        "state": "modified",
+        "sha256": "f6ee595a0361eb7838ab8b780b20cfd4cb3c04172d772852d5234f3b7e9b551d",
+        "bytes": 155,
+        "final_blob": "94fc087ff644c5eb9b806c741eefbf0b6c1319f0"
+      },
+      {
+        "path": "custom_houji.mk",
+        "base_blob": null,
+        "expected_git_mode": "100644",
+        "state": "added",
+        "sha256": "dc5b01e90c80f6bd382c323e1c1d3062455381b9a70793be6fb6bd9095128dd3",
+        "bytes": 971,
+        "final_blob": "3d402b909a4ad043ba076716457b938a6ec76ae5"
+      },
+      {
+        "path": "device.mk",
+        "base_blob": "9e610ec0dd71439455143bba412dcf478481a5a4",
+        "expected_git_mode": "100644",
+        "state": "modified",
+        "sha256": "464cd79137239aa87fd42b916d1e18a94ae3b9534d8bf05ded8172c29c40a64b",
+        "bytes": 749,
+        "final_blob": "bc1991d03ffe17e4713bf0a4eef668cf7b8efe27"
+      },
+      {
+        "path": "lineage_houji.mk",
+        "base_blob": "d3899f147e1d696780049522f0f9d2f053ab7e06",
+        "expected_git_mode": null,
+        "state": "deleted"
+      },
+      {
+        "path": "proprietary-files.txt",
+        "base_blob": "2db6957729a53f92a570a3bef607d086aab3b8fc",
+        "expected_git_mode": "100644",
+        "state": "modified",
+        "sha256": "f4378e5c3aef2642226bcad16623fae4fde7fffd7bffe09828f2d7a825ad3e4f",
+        "bytes": 90702,
+        "final_blob": "7dc9fda6ac5feb2be293a1f1e9362e92cbbaf7a1"
+      }
+    ],
+    "dirty_paths": [
+      {
+        "status": " M",
+        "path": "AndroidProducts.mk"
+      },
+      {
+        "status": " M",
+        "path": "device.mk"
+      },
+      {
+        "status": " D",
+        "path": "lineage_houji.mk"
+      },
+      {
+        "status": " M",
+        "path": "proprietary-files.txt"
+      },
+      {
+        "status": "??",
+        "path": "custom_houji.mk"
+      }
+    ]
+  },
+  "device/xiaomi/sm8650-common": {
+    "revision": "b79342c6ebd7ecbe132798cfeb383be9627d1f9b",
+    "files": [
+      {
+        "path": "common.mk",
+        "base_blob": "2cdd2a80e4c691e9dbb088e74dc01484ed1a202f",
+        "expected_git_mode": "100644",
+        "state": "modified",
+        "sha256": "630bc5b768597fed8067ad3cd90cede8230bf80e9ed21a08764652d326e9499c",
+        "bytes": 18041,
+        "final_blob": "b8d1cac32c002a68f654fa21a13b6c7861515d11"
+      },
+      {
+        "path": "extract-files.py",
+        "base_blob": "218b013a77700fecb2eb66f93ed5764a89467d9d",
+        "expected_git_mode": "100755",
+        "state": "modified",
+        "sha256": "b03f05990e2aa121297399c8a791f6ce39ba95d99f54c887ca94fe936d81fd83",
+        "bytes": 4007,
+        "final_blob": "f899fe432b971bb780e56b6f3a7631aec76a80bc"
+      }
+    ],
+    "dirty_paths": [
+      {
+        "status": " M",
+        "path": "common.mk"
+      },
+      {
+        "status": " M",
+        "path": "extract-files.py"
+      }
+    ]
+  },
+  "vendor/custom": {
+    "revision": "6f048e8a7c521190c7ce991a8b38559b279d452a",
+    "files": [
+      {
+        "path": "config/version.mk",
+        "base_blob": "698ac7e681eeb1c182006b4a255f5e398663b55d",
+        "expected_git_mode": "100644",
+        "state": "modified",
+        "sha256": "dfe7eb4efd8d07f076f0e9084096797527649beed88750e2b659bb0e6abf8b3b",
+        "bytes": 558,
+        "final_blob": "abd58194f66ff2480bcf587ddec5fdf0c17d099d"
+      }
+    ],
+    "dirty_paths": [
+      {
+        "status": " M",
+        "path": "config/version.mk"
+      }
+    ]
+  },
+  "vendor/lineage": {
+    "revision": "2904d731d438cf6aa12f9ee39670ad0d0907c96a",
+    "files": [
+      {
+        "path": "config/version.mk",
+        "base_blob": "bc3fc56b37590bb63445d98a34c09baf92d86be5",
+        "expected_git_mode": "100644",
+        "state": "modified",
+        "sha256": "e0559ebdd48cc53f397c68315ad74afe4df0dca3c942367b5820538af573dcf1",
+        "bytes": 1518,
+        "final_blob": "8b6c5da728ed26b5275a09781ac05e85ee4c9d51"
+      }
+    ],
+    "dirty_paths": [
+      {
+        "status": " M",
+        "path": "config/version.mk"
+      }
+    ]
+  },
+  "build/make": {
+    "revision": "f201c9c3ec3184695f012df5ef79d79b04fe2d36",
+    "files": [
+      {
+        "path": "tools/releasetools/common.py",
+        "base_blob": "0cf14b88f12939033e547e8917aaa93d656da2be",
+        "expected_git_mode": "100644",
+        "state": "modified",
+        "sha256": "8654cecf3bcba2dd9780e9e630cd9d0de788456c89f7f856d2d8ff8370899d6f",
+        "bytes": 161163,
+        "final_blob": "3b76e4635adba9b66f326044b1a5a328ffe64604"
+      }
+    ],
+    "dirty_paths": [
+      {
+        "status": " M",
+        "path": "tools/releasetools/common.py"
+      }
+    ]
+  }
+}

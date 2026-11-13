@@ -1,0 +1,84 @@
+diff --git a/AndroidProducts.mk b/AndroidProducts.mk
+index bb802c1..94fc087 100644
+--- a/AndroidProducts.mk
++++ b/AndroidProducts.mk
+@@ -5,5 +5,5 @@
+ #
+ 
+ PRODUCT_MAKEFILES := \
+-    $(LOCAL_DIR)/lineage_houji.mk
++    $(LOCAL_DIR)/custom_houji.mk
+ 
+diff --git a/lineage_houji.mk b/lineage_houji.mk
+deleted file mode 100644
+index d3899f1..0000000
+--- a/lineage_houji.mk
++++ /dev/null
+@@ -1,30 +0,0 @@
+-#
+-# Copyright (C) 2024 The Android Open Source Project
+-#
+-# SPDX-License-Identifier: Apache-2.0
+-#
+-
+-# Inherit from products. Most specific first.
+-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+-
+-# Inherit some common Lineage stuff.
+-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+-
+-# Inherit from houji device.
+-$(call inherit-product, device/xiaomi/houji/device.mk)
+-
+-## Device identifier
+-PRODUCT_DEVICE := houji
+-PRODUCT_NAME := lineage_houji
+-PRODUCT_BRAND := Xiaomi
+-PRODUCT_MODEL := 23127PN0CG
+-PRODUCT_MANUFACTURER := xiaomi
+-
+-PRODUCT_BUILD_PROP_OVERRIDES += \
+-    BuildDesc=$(call normalize-path-list, "houji houji 16 BP2A.250605.031.A3 OS3.0.301.0.WNCMIXM release-keys")
+-
+-BUILD_FINGERPRINT := Xiaomi/houji/houji:16/BP2A.250605.031.A3/OS3.0.301.0.WNCMIXM:user/release-keys
+-
+-# GMS
+-PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+\ No newline at end of file
+diff --git a/custom_houji.mk b/custom_houji.mk
+new file mode 100644
+index 0000000..3d402b9
+--- /dev/null
++++ b/custom_houji.mk
+@@ -0,0 +1,30 @@
++#
++# Copyright (C) 2024 The Android Open Source Project
++#
++# SPDX-License-Identifier: Apache-2.0
++#
++
++# Inherit from products. Most specific first.
++$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
++$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
++
++# Inherit the PixelOS configuration, including its shared Lineage base.
++$(call inherit-product, vendor/custom/config/common_full_phone.mk)
++
++# Inherit from houji device.
++$(call inherit-product, device/xiaomi/houji/device.mk)
++
++## Device identifier
++PRODUCT_DEVICE := houji
++PRODUCT_NAME := custom_houji
++PRODUCT_BRAND := Xiaomi
++PRODUCT_MODEL := 23127PN0CG
++PRODUCT_MANUFACTURER := xiaomi
++
++PRODUCT_BUILD_PROP_OVERRIDES += \
++    BuildDesc=$(call normalize-path-list, "houji houji 16 BP2A.250605.031.A3 OS3.0.301.0.WNCMIXM release-keys")
++
++BUILD_FINGERPRINT := Xiaomi/houji/houji:16/BP2A.250605.031.A3/OS3.0.301.0.WNCMIXM:user/release-keys
++
++# GMS
++PRODUCT_GMS_CLIENTID_BASE := android-xiaomi

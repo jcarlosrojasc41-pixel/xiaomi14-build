@@ -1,0 +1,13 @@
+{
+  "name": "pixelos-17-houji-working-20261112",
+  "original_manifest_commit": "8014d1536138743b1a175aaedb9509680072e542",
+  "local_milestone_commit": "5e82685325a39f8540de37f1d5b77c9c816bf144",
+  "device": "houji / 23127PN0CC",
+  "rom": "PixelOS_houji-17.0-20261110-0322.zip",
+  "rom_sha256": "aa75a12d78836686b190c33c1842d260c687007e754c9c3cf5694f47a4528b5a",
+  "repo_tool_url": "https://gerrit.googlesource.com/git-repo",
+  "repo_tool_commit": "365629015667e04739f59070e745548a728549c8",
+  "repo_tool_version": "v2.72",
+  "runtime_note": "Personal unofficial userdebug build. User reported boot, KernelSU Working, SIM detection and received SMS. Broad hardware/long-term testing not established. Original OTA lacks later root and modem repair.",
+  "historical_container_image_id": "714849775bf96f32d3a1d101206dd417f76bf137c5de05e6135bc0ee2bcdaf5f"
+}

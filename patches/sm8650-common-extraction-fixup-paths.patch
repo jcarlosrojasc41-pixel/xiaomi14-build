@@ -1,0 +1,33 @@
+diff --git a/extract-files.py b/extract-files.py
+index 218b013..f899fe4 100755
+--- a/extract-files.py
++++ b/extract-files.py
+@@ -58,8 +58,8 @@ blob_fixups: blob_fixups_user_type = {
+     ): blob_fixup()
+         .add_needed('libshim.so'),
+     (
+-        'vendor/etc/media_codecs_pinaepple.xml', 
+-        'vendor/etc/media_codecs_pinaepple_vendor.xml'
++        'vendor/etc/media_codecs_pineapple.xml',
++        'vendor/etc/media_codecs_pineapple_vendor.xml'
+     ): blob_fixup()
+         .regex_replace('.*media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio).*\n', ''),
+     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
+@@ -76,7 +76,7 @@ blob_fixups: blob_fixups_user_type = {
+     ): blob_fixup()
+         .add_needed('libbinder_shim.so'),
+     (
+-        'vendor/lib64/libaudioroute_ext.so',
++        'odm/lib64/libaudioroute_ext.so',
+         'vendor/lib64/libar-pal.so',
+     ): blob_fixup()
+         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
+@@ -90,7 +90,7 @@ blob_fixups: blob_fixups_user_type = {
+     'vendor/lib64/libqcodec2_core.so': blob_fixup()
+         .add_needed('libcodec2_shim.so'),
+     (
+-        'vendor.qti.hardware.display.composer-service',
++        'vendor/bin/hw/vendor.qti.hardware.display.composer-service',
+         'vendor/lib64/libsnapdragoncolor-manager.so',
+         'vendor/lib64/libdpps.so',
+         'vendor/bin/poweropt-service',
