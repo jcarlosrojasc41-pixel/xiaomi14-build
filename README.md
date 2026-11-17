@@ -1,4 +1,4 @@
-# Xiaomi 14 · personal PixelOS 17 build recipe
+bd48a00a6ad17d0e3ea590696d81af72081868d2# Xiaomi 14 · personal PixelOS 17 build recipe
 
 为国行 Xiaomi 14（`houji` / `23127PN0CC`）保存的**小型构建仓库**。基准是用户于 2026-11-12 确认可运行的第 003 次个人构建。此仓库不是 PixelOS 官方设备发行版，也不包含可直接刷写的 ROM。
 
